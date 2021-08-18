@@ -1,0 +1,22 @@
+{
+  "name": "testing-javascript-application",
+  "version": "1.0.0",
+  "description": "testing javascript application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melboudali/Testing-JavaScript-Applications.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melboudali/Testing-JavaScript-Applications/issues"
+  },
+  "homepage": "https://github.com/melboudali/Testing-JavaScript-Applications#readme",
+  "devDependencies": {
+    "jest": "^27.0.6"
+  }
+}
