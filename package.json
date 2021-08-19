@@ -2,9 +2,11 @@
 	"name": "testing-javascript-application",
 	"version": "1.0.0",
 	"description": "testing javascript application",
-	"main": "index.js",
+	"main": "app.js",
 	"scripts": {
-		"test": "jest"
+		"test": "jest",
+		"testAndForceExit": "jest --forceExit",
+		"testAndCheckifJestDoesntExist": "jest -- --detectOpenHandles"
 	},
 	"repository": {
 		"type": "git",
@@ -20,7 +22,10 @@
 		"jest": "27.0.6"
 	},
 	"dependencies": {
+		"@koa/router": "^10.1.0",
+		"isomorphic-fetch": "^3.0.0",
 		"knex": "^0.21.21",
+		"koa": "^2.13.1",
 		"sqlite3": "^5.0.2"
 	}
 }
