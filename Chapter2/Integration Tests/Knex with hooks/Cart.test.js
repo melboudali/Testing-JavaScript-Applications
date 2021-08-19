@@ -2,8 +2,11 @@ const { db, closeConnection } = require("../../../dbConnection");
 const { createCart, addItem } = require("./cart");
 
 test("addItem adds an item to a cart", async () => {
-	await db("carts").truncate();
-	await db("carts_items").truncate();
+	beforeAll(async () => {
+		await db("carts").truncate();
+		await db("carts_items").truncate();
+	});
+	afterAll(async () => await closeConnection());
 
 	const username = "Moe EL BOUDALI";
 	await createCart(username);
