@@ -17,6 +17,8 @@ const deleteItems = (username, item) => {
 	return fetch(`${apiRoot}/carts/${username}/items/${item}`, { method: "DELETE" });
 };
 
+// End to End tests
+
 test("adding items to a cart", async () => {
 	const initialItems = await getItems("Moe EL BOUDALI");
 	expect(initialItems.status).toBe(404);
