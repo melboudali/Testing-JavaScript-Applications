@@ -6,7 +6,8 @@
 	"scripts": {
 		"test": "jest",
 		"testAndForceExit": "jest --forceExit",
-		"testAndCheckifJestDoesntExist": "jest -- --detectOpenHandles"
+		"testAndCheckifJestDoesntExist": "jest -- --detectOpenHandles",
+		"runTestsSequentially": "jest --runInBand"
 	},
 	"repository": {
 		"type": "git",
