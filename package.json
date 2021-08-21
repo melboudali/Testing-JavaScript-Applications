@@ -20,7 +20,8 @@
 	},
 	"homepage": "https://github.com/melboudali/Testing-JavaScript-Applications#readme",
 	"devDependencies": {
-		"jest": "27.0.6"
+		"jest": "27.0.6",
+		"jest-extended": "^0.11.5"
 	},
 	"dependencies": {
 		"@koa/router": "^10.1.0",
