@@ -7,7 +7,8 @@
 		"test": "jest",
 		"testAndForceExit": "jest --forceExit",
 		"testAndCheckifJestDoesntExist": "jest -- --detectOpenHandles",
-		"runTestsSequentially": "jest --runInBand"
+		"runTestsSequentially": "jest --runInBand",
+		"testCoverage": "jest --coverage"
 	},
 	"repository": {
 		"type": "git",
