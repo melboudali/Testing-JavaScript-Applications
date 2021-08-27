@@ -1,5 +1,5 @@
-const { inventory } = require("./inventoryController");
-const { carts, addItemToCart } = require("./cartController");
+const { inventory } = require("./InventoryController");
+const { carts, addItemToCart } = require("./CartController");
 
 afterEach(() => {
 	inventory.clear();

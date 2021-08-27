@@ -1,4 +1,4 @@
-const { removeFromInventory } = require("./inventoryController");
+const { removeFromInventory } = require("./InventoryController");
 
 const carts = new Map();
 
