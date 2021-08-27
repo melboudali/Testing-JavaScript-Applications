@@ -11,5 +11,8 @@
   "dependencies": {
     "express": "^4.17.1",
     "isomorphic-fetch": "^3.0.0"
+  },
+  "devDependencies": {
+    "mock-req-res": "^1.2.0"
   }
 }
