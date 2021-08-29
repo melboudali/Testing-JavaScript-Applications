@@ -3,7 +3,6 @@ const { createCart } = require("./cart");
 
 test("createCart creates a cart for a username with done", done => {
 	db("carts")
-		.truncate()
 		.then(() => createCart("Moe EL BOUDALI"))
 		.then(() => db.select("username").from("carts"))
 		.then(result => {
