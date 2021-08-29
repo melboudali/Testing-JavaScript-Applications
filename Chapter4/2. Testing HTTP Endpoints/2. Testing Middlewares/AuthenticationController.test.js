@@ -1,5 +1,5 @@
 const crypto = require("crypto");
-const { mockRequest, mockResponse } = require("mock-req-res");
+const { mockRequest } = require("mock-req-res");
 const { users, hashPassword, credentialsAreValid, authenticationMiddleware } = require("./AuthenticationController");
 
 afterEach(() => users.clear());
@@ -35,15 +35,36 @@ describe("authenticationMiddleware", () => {
 	test("returning an error if the credentials are not valid", async () => {
 		const fakeAuth = Buffer.from("invalid:credentials").toString("base64");
 		const req = mockRequest({ headers: { authorization: `Basic ${fakeAuth}` } });
-		const res = mockResponse();
+		const res = {};
 		const next = jest.fn();
-		await authenticationMiddleware(req, res, next);
+		const ctx = { res, req };
+
+		await authenticationMiddleware(ctx, next);
+
 		expect(next.mock.calls).toHaveLength(0);
-		console.log(res);
-		// expect(res.status).toEqual(status: 401{
-		// 	...res,
-		// 	,
-		// 	body: { message: "please provide valid credentials" }
-		// });
+
+		expect(ctx).toEqual({
+			...ctx,
+			res: { ...res, status: 401, body: { message: "please provide valid credentials" } }
+		});
+	});
+
+	test("if the credentials are valid", async () => {
+		users.set("test_user", {
+			email: "test_user@example.org",
+			passwordHash: hashPassword("a_password")
+		});
+
+		const validAuth = Buffer.from("test_user:a_password").toString("base64");
+
+		const req = mockRequest({ headers: { authorization: `Basic ${validAuth}` } });
+
+		const res = {};
+		const next = jest.fn();
+		const ctx = { res, req };
+
+		await authenticationMiddleware(ctx, next);
+
+		expect(next.mock.calls).toHaveLength(1);
 	});
 });

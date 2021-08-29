@@ -16,9 +16,9 @@ const credentialsAreValid = (username, password) => {
 	return hashPassword(password) === currentPasswordHash;
 };
 
-const authenticationMiddleware = async (req, res, next) => {
+const authenticationMiddleware = async ({ req, res }, next) => {
 	try {
-		const authHeader = req.get("authorization");
+		const authHeader = req.headers.authorization;
 		const credentials = Buffer.from(authHeader.slice("basic".length + 1), "base64").toString();
 		const [username, password] = credentials.split(":");
 
@@ -26,6 +26,11 @@ const authenticationMiddleware = async (req, res, next) => {
 			throw new Error("invalid credentials");
 		}
 	} catch (e) {
+		if (Object.keys(res).length === 0) {
+			res.status = 401;
+			res.body = { message: `please provide valid credentials` };
+			return;
+		}
 		return res.status(401).send({ message: `please provide valid credentials` });
 	}
 

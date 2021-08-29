@@ -1,11 +1,21 @@
 const express = require("express");
 const app = express();
-const { users, hashPassword } = require("./AuthenticationController");
+const { users, hashPassword, authenticationMiddleware } = require("./AuthenticationController");
+
+const { carts, addItemToCart } = require("./CartController");
+const { inventory } = require("./InventoryController");
 
 const port = 3000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use(async (req, res, next) => {
+	if (req.originalUrl.startsWith("/carts")) {
+		return await authenticationMiddleware({ req, res }, next);
+	}
+	next();
+});
 
 app.put("/users/:username", (req, res) => {
 	const { username } = req.params;
@@ -16,6 +26,34 @@ app.put("/users/:username", (req, res) => {
 	}
 	users.set(username, { email, passwordHash: hashPassword(password) });
 	return res.send({ message: `${username} created successfully.` });
+});
+
+app.post("/carts/:username/items", (req, res) => {
+	const { username } = req.params;
+	const { item, quantity } = req.body;
+	let returnedItems = [];
+
+	try {
+		for (let i = 0; i < quantity; i++) {
+			const newItems = addItemToCart(username, item);
+			returnedItems = newItems;
+		}
+		return res.send(returnedItems);
+	} catch (e) {
+		return res.status(e.code).send({ message: e.message });
+	}
+});
+
+app.delete("/carts/:username/items/:item", (req, res) => {
+	const { username, item } = req.params;
+	if (!carts.has(username) || !carts.get(username).includes(item)) {
+		return res.status(400).send({ message: `${item} is not in the cart` });
+	}
+
+	const newItems = (carts.get(username) || []).filter(i => i !== item);
+	inventory.set(item, (inventory.get(item) || 0) + 1);
+	carts.set(username, newItems);
+	return res.send(newItems);
 });
 
 module.exports = app.listen(port);
