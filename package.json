@@ -29,6 +29,7 @@
 	"dependencies": {
 		"@koa/router": "^10.1.0",
 		"isomorphic-fetch": "^3.0.0",
+		"jsdom": "^16.7.0",
 		"knex": "^0.21.21",
 		"koa": "^2.13.1",
 		"pino": "^7.0.0-rc.3",
