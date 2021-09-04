@@ -8,7 +8,8 @@
 		"testAndForceExit": "jest --forceExit",
 		"testAndCheckifJestDoesntExist": "jest -- --detectOpenHandles",
 		"runTestsSequentially": "jest --runInBand",
-		"testCoverage": "jest --coverage"
+		"testCoverage": "jest --coverage",
+		"build": "browserify .Chapter6/1. Jsdom Introducing/3. Jest Jsdommain.js -o .Chapter6/1. Jsdom Introducing/3. Jest Jsdom/bundle.js"
 	},
 	"repository": {
 		"type": "git",
@@ -28,6 +29,7 @@
 	},
 	"dependencies": {
 		"@koa/router": "^10.1.0",
+		"browserify": "^17.0.0",
 		"isomorphic-fetch": "^3.0.0",
 		"jsdom": "^16.7.0",
 		"knex": "^0.21.21",
