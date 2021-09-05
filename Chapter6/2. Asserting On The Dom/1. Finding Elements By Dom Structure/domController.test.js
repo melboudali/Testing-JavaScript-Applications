@@ -11,25 +11,7 @@ describe("updateItemList", () => {
 			"carrot cake": 6
 		};
 		updateItemList(inventory);
-
-		const itemList = document.getElementById("item-list");
-		expect(itemList.childNodes).toHaveLength(3);
-	});
-
-	test("updates the DOM with the inventory items", () => {
-		// const inventory = {};
-
-		updateItemList({});
-		const itemList = document.getElementById("item-list");
-		expect(itemList.childNodes).toHaveLength(0);
-
-		const inventory = {
-			cheesecake: 5,
-			"apple pie": 2,
-			"carrot cake": 6
-		};
-		updateItemList(inventory);
-
+		const itemList = document.querySelector("body > ul");
 		expect(itemList.childNodes).toHaveLength(3);
 
 		// The `childNodes` property has a `length`, but it's _not_ an Array
