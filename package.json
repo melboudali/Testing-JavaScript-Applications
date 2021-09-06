@@ -23,6 +23,8 @@
 	"homepage": "https://github.com/melboudali/Testing-JavaScript-Applications#readme",
 	"devDependencies": {
 		"@sinonjs/fake-timers": "^7.1.2",
+		"@testing-library/dom": "^8.2.0",
+		"@testing-library/jest-dom": "^5.14.1",
 		"jest": "27.0.6",
 		"jest-extended": "^0.11.5",
 		"supertest": "^6.1.6"
