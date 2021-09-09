@@ -1,0 +1,32 @@
+{
+	"name": "createelemen-calls",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"build": "browserify index.jsx -o bundle.js"
+	},
+	"browserify": {
+		"transform": [
+			[
+				"babelify",
+				{
+					"presets": [
+						"@babel/preset-env",
+						"@babel/preset-react"
+					]
+				}
+			]
+		]
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"react": "^17.0.2",
+		"react-dom": "^17.0.2"
+	},
+	"devDependencies": {
+		"browserify": "^17.0.0"
+	}
+}
