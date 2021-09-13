@@ -13,6 +13,13 @@
 				"babelify",
 				{
 					"presets": [
+						[
+							"@babel/preset-env",
+							{
+								"useBuiltIns": "usage",
+								"corejs": 2
+							}
+						],
 						"@babel/preset-env",
 						"@babel/preset-react"
 					]
@@ -34,6 +41,7 @@
 		"@testing-library/react": "^12.1.0",
 		"babelify": "^10.0.0",
 		"browserify": "^17.0.0",
+		"core-js": "^3.17.3",
 		"http-server": "^13.0.1",
 		"isomorphic-fetch": "^3.0.0",
 		"jest": "^27.1.1",
