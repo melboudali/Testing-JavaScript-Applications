@@ -19,14 +19,7 @@ describe("ItemList Component", () => {
 
 		const { getByText } = render(<ItemList items={Items} />);
 		const cheesecakeItem = getByText(generateItemText("cheesecake", 2));
-		const macaroon = getByText(generateItemText("macaroon", 96));
-		// expect(cheesecakeItem).toHaveClass("almost-out-of-stock");
-		// expect(cheesecakeItem).toHaveStyle({ color: "red" });
-		expect(cheesecakeItem).toHaveStyleRule("font-weight", "bold");
-		expect(cheesecakeItem).toHaveStyleRule("color", "red");
-
-		expect(macaroon).toHaveStyleRule("color", "black");
-		expect(macaroon).toHaveStyleRule("font-weight", "normal");
+		expect(cheesecakeItem).toHaveClass("almost-out-of-stock");
 	});
 
 	test("highlighting items that are almost out of stock with snapshot", () => {
