@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemList Component highlighting items that are almost out of stock with snapshot 1`] = `
+<li
+  style="font-weight: bold; color: red;"
+>
+  cheesecake - Quantity: 2
+</li>
+`;
+
+exports[`ItemList Component highlighting items that are almost out of stock with snapshot 2`] = `
+<li>
+  macaroon - Quantity: 96
+</li>
+`;
