@@ -1,0 +1,16 @@
+{
+	"name": "setting-up-cypress",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"cypress:open": "cypress open",
+		"cypress:run": "cypress run"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"cypress": "^8.4.1"
+	}
+}
