@@ -1,0 +1,19 @@
+{
+	"name": "setting-up-cypress",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest",
+		"cypress:open": "cypress open",
+		"cypress:run": "NODE_ENV=development percy exec -- cypress run"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@percy/cypress": "^3.1.1",
+		"cypress": "^8.4.1",
+		"knex": "^0.95.11",
+		"sqlite3": "^5.0.2"
+	}
+}
